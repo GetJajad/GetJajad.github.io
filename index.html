@@ -33,7 +33,11 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+            "content": null,
+                    
+                    
+                    )
             })
             .then(function(response) {
                 if (response.ok) {
